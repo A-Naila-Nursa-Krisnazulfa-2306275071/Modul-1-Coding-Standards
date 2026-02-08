@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 public class ProductRepository {
@@ -35,7 +36,6 @@ public class ProductRepository {
         if (existingProduct != null) {
             existingProduct.setProductName(updatedProduct.getProductName());
             existingProduct.setProductQuantity(updatedProduct.getProductQuantity());
-            existingProduct.setProductId(updatedProduct.getProductId());
             return existingProduct;
         }
         return null;
