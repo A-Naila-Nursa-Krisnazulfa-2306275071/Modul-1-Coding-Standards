@@ -30,6 +30,13 @@
                     Edit Product
                 </a>
             </td>
+            <td>
+                <a th:href="@{/product/delete/{id}(id=${product.productId})}"
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('Are you sure about deleting this product?');">
+                    Delete
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>
