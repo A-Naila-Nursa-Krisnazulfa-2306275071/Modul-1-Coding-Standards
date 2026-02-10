@@ -7,6 +7,7 @@ package id.ac.ui.cs.advprog.eshop.service;
  import java.util.ArrayList;
  import java.util.Iterator;
  import java.util.List;
+ import java.util.UUID;
 
  @Service
 public class ProductServiceImpl implements ProductService {
@@ -15,6 +16,7 @@ public class ProductServiceImpl implements ProductService {
 
      @Override
      public Product create(Product product) {
+         product.setProductId(UUID.randomUUID().toString());
          productRepository.create(product);
          return product;
      }
@@ -25,5 +27,15 @@ public class ProductServiceImpl implements ProductService {
          List<Product> allProduct = new ArrayList<>();
          productIterator.forEachRemaining(allProduct::add);
          return allProduct;
+     }
+
+     @Override
+     public Product findProductById(String id) {
+         return productRepository.findProductById(id);
+     }
+
+     @Override
+     public Product updateProduct(Product product) {
+         return productRepository.updateProduct(product);
      }
 }
